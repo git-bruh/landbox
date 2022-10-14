@@ -45,5 +45,12 @@ $(BIN): $(BIN_OBJ) $(LIB)
 compile_commands.json:
 	CC=cc compiledb -n make
 
+install: all
+	mkdir -p $(DESTDIR)/$(PREFIX)/bin $(DESTDIR)/$(PREFIX)/lib \
+		$(DESTDIR)/$(PREFIX)/include
+	cp -f $(BIN) $(DESTDIR)/$(PREFIX)/bin
+	cp -f $(LIB) $(DESTDIR)/$(PREFIX)/lib
+	cp -f include/landbox.h $(DESTDIR)/$(PREFIX)/include
+
 clean:
 	$(RM) -f $(BIN) $(LIB) $(BIN_OBJ) $(LIB_OBJ) $(DEP) compile_commands.json

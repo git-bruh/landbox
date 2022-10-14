@@ -6,10 +6,10 @@ Tiny helper library that wraps the Linux [landlock](https://landlock.io) API pro
 
 ```sh
 make
-make DESTDIR="$pkgdir" install
+make DESTDIR="$pkgdir" PREFIX=/usr install
 ```
 
-Will build the library `liblandbox.a` and the example tool `landbox` and install them to `$DESTDIR/{lib,include,usr}`.
+Will build the library `liblandbox.a` and the example tool `landbox` and install them to `$DESTDIR/usr/{lib,include,usr}`.
 
 # Usage
 
